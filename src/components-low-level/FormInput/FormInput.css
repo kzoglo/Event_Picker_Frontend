@@ -1,0 +1,54 @@
+/*** Generic Classes ***/
+.field {
+  margin-bottom: 3%;
+}
+
+.formInput-label {
+  padding-bottom: 2%;
+}
+
+.formInput-label,
+.formInput-input {
+  width: 100%;
+  display: block;
+  line-height: 1.21428571em;
+  font-size: 1em;
+}
+
+.formInput-input {
+  margin: 0;
+  padding: 0.65em 0;
+  color: rgba(0, 0, 0, 0.87);
+  font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  outline: 1px;
+  box-shadow: 0 0 0 0 transparent inset;
+  background: #fff;
+  border: 2px solid rgba(34, 36, 38, 0.15);
+  border-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.3rem;
+  transition: color 0.1s ease, border-color 0.1s ease;
+}
+
+/*** Pseudo Classes ***/
+.formInput-input:focus {
+  border: 2px solid #50afce;
+}
+
+/*** Conditional Classes ***/
+.neutral-input {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.invalid-input {
+  border-color: red;
+}
+
+.validation-p {
+  padding: var(--validation-p-padding-top) 0 0
+    var(--validation-p-padding-bottom);
+  margin: 0;
+  line-height: 1.5;
+  color: red;
+  font-weight: var(--validation-p-font-weight);
+  font-size: var(--validation-p-font-size);
+}
