@@ -18,7 +18,7 @@
 npm i
 ```
 
-## Usage
+## Usage (in order to submit an event event_picker_backend server needs to be running)
 
 ```sh
 npm start
