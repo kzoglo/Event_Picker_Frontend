@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  color: white;
+  font-size: 14px;
+  line-height: 1.43em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*** Variables ***/
+:root {
+  --min-height-size: 80vh;
+  --layout-padding-top: 20vh;
+  --layout-padding-bottom: 10vh;
+  --validation-p-font-size: 12px;
+  --validation-p-padding-top: 2px;
+  --validation-p-padding-bottom: 5px;
+  --validation-p-font-weight: bold;
+}
+
+/*** Generic Classes ***/
+.main-container {
+  min-height: var(--min-height-size);
+}
+
+/*** Conditional CLasses ***/
+.invisible {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.grid {
+  display: grid;
+}
