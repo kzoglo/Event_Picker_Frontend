@@ -1,0 +1,137 @@
+/*** Generic Classes ***/
+.eventPicker-outerWrapper {
+  min-height: var(--min-height-size);
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+.eventPicker-wrapper {
+  width: 90%;
+  margin: auto;
+  color: white;
+  font-weight: 900;
+}
+
+.eventPicker-title {
+  margin-left: 4px;
+  margin-bottom: 20px;
+  font-family: 'Cinzel', serif;
+  color: white;
+  font-size: 29px;
+}
+
+.eventPicker-form {
+  display: grid;
+  padding: 3% 8% 3%;
+  background-color: rgba(0, 0, 0, 0.81);
+  border: 3px white solid;
+  border-radius: 2%;
+}
+
+/*** Conditional Classes ***/
+.eventPicker-wrapper .invalid {
+  color: red;
+}
+
+.eventPicker-wrapper .valid {
+  color: green;
+}
+
+.validate-eventPicker-info {
+  height: 20px;
+  margin: 10px 0 0 0;
+  text-align: center;
+}
+
+/*** Restyling of imported components ***/
+/* SubmitBtn */
+.eventPicker-wrapper .eventPicker-Btn {
+  padding: 3% 2%;
+}
+
+/* Loading Spinner */
+.eventPicker-wrapper .eventPicker-spinner {
+  border: 6px solid #3058dc;
+  border-top-color: transparent;
+}
+
+.eventPicker-wrapper .eventPicker-spinner-outerWrapper {
+  display: inline;
+  position: relative;
+  top: -21px;
+  right: 0%;
+  margin-left: 0;
+  background: #808080;
+}
+
+/*** Media Queries ***/
+@media screen and (min-width: 460px) {
+  .eventPicker-wrapper {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 560px) {
+  .eventPicker-wrapper {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .eventPicker-wrapper {
+    width: 90%;
+  }
+
+  .eventPicker-form {
+    grid-template-columns: repeat(2, 47.5%);
+    padding-bottom: 2%;
+    column-gap: 5%;
+  }
+
+  .validate-eventPicker-info {
+    grid-column: 1 / span 2;
+  }
+
+  .eventPicker-wrapper .eventPicker-Btn {
+    width: 40%;
+    padding: 2% 2%;
+    grid-column: 1 / span 2;
+    justify-self: center;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .eventPicker-wrapper {
+    width: 80%;
+  }
+}
+
+@media screen and (min-width: 860px) {
+  .eventPicker-wrapper {
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .eventPicker-wrapper {
+    width: 60%;
+  }
+}
+
+@media screen and (min-width: 1060px) {
+  .eventPicker-wrapper {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1260px) {
+  .eventPicker-wrapper {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .eventPicker-wrapper {
+    width: 40%;
+  }
+}
