@@ -92,10 +92,19 @@ export const validateDateInputType = (value: string) => {
   return true;
 };
 
-export const validateDateInputValue = (value: string) => {
+export const validateMinDateInputValue = (value: string) => {
   const time = new Date(value).getTime();
   const now = Date.now();
 
   if (!isLower(now, time)) return false;
+  return true;
+};
+
+export const validateMaxDateInputValue = (value: string) => {
+  const currentDate = new Date(Date.now());
+  const time = new Date(value).getTime();
+  const maxAvailableDate = currentDate.setFullYear(currentDate.getFullYear() + 100);
+
+  if (isLower(maxAvailableDate, time)) return false;
   return true;
 };

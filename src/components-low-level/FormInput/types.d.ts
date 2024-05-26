@@ -9,8 +9,8 @@ export interface IProps {
   name: string;
   placeholder?: string;
   inputRef: RefObject;
-  minlength?: number;
-  maxlength?: number;
+  minLength?: number;
+  maxLength?: number;
   required?: boolean;
   onClick?: ChangeEventHandler<HTMLInputElement>;
   onChange?: ChangeEventHandler<HTMLInputElement>;

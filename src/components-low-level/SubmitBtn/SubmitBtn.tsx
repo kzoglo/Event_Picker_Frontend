@@ -14,6 +14,7 @@ export const SubmitBtn = (props: IProps): JSX.Element => {
       className={`submitBtn ${classesBtn}`} 
       type="submit" 
       ref={reference}
+      data-testid="submit-button"
     >
       {btnText}
       {children}

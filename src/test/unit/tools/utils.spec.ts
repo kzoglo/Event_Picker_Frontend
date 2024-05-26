@@ -2,7 +2,7 @@ import {
   validateEmail,
   validateName,
   validateSurname,
-  validateDateInputValue
+  validateMinDateInputValue
 } from '../../../tools/utils';
 
 describe('UNIT', () => {
@@ -116,7 +116,7 @@ describe('UNIT', () => {
       ];
 
       dates.forEach((date) => {
-        const returnedValue = validateDateInputValue(date);
+        const returnedValue = validateMinDateInputValue(date);
         expect(returnedValue).toBe(false);
       });
     });
@@ -127,7 +127,7 @@ describe('UNIT', () => {
       ];
 
       dates.forEach((date) => {
-        const returnedValue = validateDateInputValue(date);
+        const returnedValue = validateMinDateInputValue(date);
         expect(returnedValue).toBe(true);
       });
     });

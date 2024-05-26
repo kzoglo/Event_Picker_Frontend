@@ -3,7 +3,8 @@
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Written in Typescript ReactJS application for the REST API project event_picker_backend. It allows user to create an event, which will be stored in DB.
+> Written in Typescript ReactJS application for the REST API "event_picker_backend" project. It allows user to create an event, which will be stored in DB.
+> Together with the "event_picker_backend" project it was my recrutation task.
 
 ### 🏠 [Homepage](https://github.com/kzoglo/event_picker_frontend)
 

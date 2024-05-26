@@ -15,6 +15,7 @@ const LoadingSpinner = (props: IProps): JSX.Element => {
     <div
       ref={reference}
       className={`loadingSpinner-outerWrapper invisible ${outerWrapper}`}
+      data-testid="loading-spinner"
     >
       <div className={`loadingSpinner-wrapper ${spinnerWrapper}`}>
         <div className={`loadingSpinner-spinner ${spinner}`}></div>

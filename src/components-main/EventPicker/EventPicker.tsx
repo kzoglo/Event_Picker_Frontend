@@ -14,7 +14,8 @@ import {
   validateEmail,
   validateSurname,
   validateName,
-  validateDateInputValue,
+  validateMinDateInputValue,
+  validateMaxDateInputValue,
 } from '../../tools/utils';
 import { DefProps } from './enums';
 import { IEventCreateResp, IFormData, IProps, IState } from './types';
@@ -58,8 +59,8 @@ class EventPicker extends Component<IProps, IState> {
       {
         title: 'First name',
         name: 'firstName',
-        placeholder: 'min. 1 character',
-        minLength: 1,
+        placeholder: 'min. 3 characters',
+        minLength: 3,
         maxLength: 100,
         formValue: this.state.firstName,
         type: 'text',
@@ -70,8 +71,8 @@ class EventPicker extends Component<IProps, IState> {
       {
         title: 'Last name',
         name: 'lastName',
-        placeholder: 'min. 1 character',
-        minLength: 1,
+        placeholder: 'min. 3 characters',
+        minLength: 3,
         maxLength: 100,
         formValue: this.state.lastName,
         type: 'text',
@@ -125,8 +126,8 @@ class EventPicker extends Component<IProps, IState> {
             formValue={formValue}
             validationVal={validationMsg}
             type={type}
-            minlength={minLength}
-            maxlength={maxLength}
+            minLength={minLength}
+            maxLength={maxLength}
             inputRef={reference}
             onChange={() =>
               this.handleInputChange(name, reference.current!.value)
@@ -168,22 +169,38 @@ class EventPicker extends Component<IProps, IState> {
   ) => {
     let warningText;
 
-    if (isEqual(inputName, 'email')) {
-      if (!validateEmail(inputValue)) {
-        warningText = `Wrong email format`;
+    if (isEqual(inputName, 'firstName')) {
+      if (isLower(inputValue.length, minlength as number)) {
+        warningText = `"${title}" needs to have at least ${minlength} characters`;
+        this.negativeValidation(inputClassList, warningText, validationMsgName);
+      }
+      else if (!validateName(inputValue)) {
+        warningText = `"${title}" cannot contain numbers and special characters`;
+        this.negativeValidation(inputClassList, warningText, validationMsgName);
+      }
+      else this.positiveValidation(inputClassList, validationMsgName);
+    }
+
+    if (isEqual(inputName, 'lastName')) {
+      if (isLower(inputValue.length, minlength as number)) {
+        warningText = `"${title}" needs to have at least ${minlength} characters`;
+        this.negativeValidation(inputClassList, warningText, validationMsgName);
+      } 
+      else if (!validateSurname(inputValue)) {
+        warningText = `"${title}" cannot contain numbers and special characters`;
         this.negativeValidation(inputClassList, warningText, validationMsgName);
       }
       else this.positiveValidation(inputClassList, validationMsgName);
       return;
     }
 
-    if (isEqual(inputName, 'lastName')) {
+    if (isEqual(inputName, 'email')) {
       if (isLower(inputValue.length, minlength as number)) {
-        warningText = `"${title}" needs to have at least ${minlength} character`;
+        warningText = `"${title}" needs to have at least ${minlength} characters`;
         this.negativeValidation(inputClassList, warningText, validationMsgName);
-      } 
-      else if (!validateSurname(inputValue)) {
-        warningText = `"${title}" cannot contain numbers and special characters`;
+      }
+      else if (!validateEmail(inputValue)) {
+        warningText = `Wrong email format`;
         this.negativeValidation(inputClassList, warningText, validationMsgName);
       }
       else this.positiveValidation(inputClassList, validationMsgName);
@@ -195,24 +212,17 @@ class EventPicker extends Component<IProps, IState> {
         warningText = `"${title}" needs to be selected`;
         this.negativeValidation(inputClassList, warningText, validationMsgName);
       }
-      else if (!validateDateInputValue(inputValue)) {
+      else if (!validateMinDateInputValue(inputValue)) {
         warningText = `"${title}" needs to be in future`;
+        this.negativeValidation(inputClassList, warningText, validationMsgName);
+      }
+      else if (!validateMaxDateInputValue(inputValue)) {
+        warningText = `"${title}" can extend up to 100 years into the future`;
         this.negativeValidation(inputClassList, warningText, validationMsgName);
       }
       else this.positiveValidation(inputClassList, validationMsgName);
       return;
     }
-
-    if (isLower(inputValue.length, minlength as number)) {
-      warningText = `"${title}" needs to have at least ${minlength} character`;
-      this.negativeValidation(inputClassList, warningText, validationMsgName);
-    }
-    else if (!validateName(inputValue)) {
-      warningText = `"${title}" cannot contain numbers and special characters`;
-      this.negativeValidation(inputClassList, warningText, validationMsgName);
-    }
-    else this.positiveValidation(inputClassList, validationMsgName);
-    
   };
 
   validateSubmittingInfo = (status: number, msg: string) => {
@@ -240,7 +250,7 @@ class EventPicker extends Component<IProps, IState> {
     ];
     let areDataCorrect = validationMsgs.every((msg) => isEqual(msg, ''));
     if (!areDataCorrect) {
-      const msg = 'Fill in all data!';
+      const msg = 'Correct the entered data';
       this.setState({ afterSubmitInfo: msg }, () => {
         timeout(() => {
           this.setState({ afterSubmitInfo: '' });

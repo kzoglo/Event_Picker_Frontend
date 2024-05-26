@@ -12,8 +12,8 @@ const FormInput = (props: IProps): JSX.Element => {
     name,
     placeholder,
     inputRef,
-    minlength = DefProps.MIN_LENGTH,
-    maxlength = DefProps.MAX_LENGTH,
+    minLength = DefProps.MIN_LENGTH,
+    maxLength = DefProps.MAX_LENGTH,
     required  = DefProps.REQUIRED,
     onClick,
     onChange,
@@ -32,8 +32,8 @@ const FormInput = (props: IProps): JSX.Element => {
         type={type}
         ref={inputRef}
         value={formValue}
-        minLength={minlength}
-        maxLength={maxlength}
+        minLength={minLength}
+        maxLength={maxLength}
         required={required}
         onChange={onChange}
         onClick={onClick}
